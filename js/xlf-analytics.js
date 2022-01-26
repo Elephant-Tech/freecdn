@@ -27,7 +27,7 @@ console.log("AID:"+agentID);
 	if(userID == null && agentID != null){//agentID存在
 		_paq.push(['setUserId', "AID-"+agentID]);
 	}else if(userID != null && agentID == null){//agentID存在
-		_paq.push(['UserID', "uID-"+userID]);
+		_paq.push(['setUserId', "uID-"+userID]);
 	}else{}
 	  
   
