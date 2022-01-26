@@ -26,7 +26,7 @@ console.log("AID:"+agentID);
 	var _paq = window._paq = window._paq || [];
 	if(userID == null && agentID != null){//agentID存在
 		_paq.push(['AgentID', agentID]);
-	else if(userID != null && agentID == null){//agentID存在
+	}else if(userID != null && agentID == null){//agentID存在
 		_paq.push(['UserID', userID]);
 	}else{}
 	  
