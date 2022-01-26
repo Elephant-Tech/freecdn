@@ -25,9 +25,9 @@ console.log("AID:"+agentID);
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
 	var _paq = window._paq = window._paq || [];
 	if(userID == null && agentID != null){//agentID存在
-		_paq.push(['AgentID', agentID]);
+		_paq.push(['setUserId', "AID-"+agentID]);
 	}else if(userID != null && agentID == null){//agentID存在
-		_paq.push(['UserID', userID]);
+		_paq.push(['UserID', "uID-"+userID]);
 	}else{}
 	  
   
