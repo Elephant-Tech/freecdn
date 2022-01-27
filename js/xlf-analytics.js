@@ -29,16 +29,17 @@ console.log("AID:"+agentID);
 	}else if(userID != null && agentID == null){//agentID存在
 		_paq.push(['setUserId', "UID-"+userID]);
 	}else{}
-	  
-  
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
+	
+	_paq.push(['enableHeartBeatTimer', 5]);
+
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
   (function() {
-    var u="//analytics.elephant-tech.xyz/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	var u="//analytics.elephant-tech.xyz/";
+	_paq.push(['setTrackerUrl', u+'matomo.php']);
+	_paq.push(['setSiteId', '1']);
+	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 //20220121 Matomo统计 结束\\
 
