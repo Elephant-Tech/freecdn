@@ -35,6 +35,20 @@ function getClientLocation_ipchaxun() {
     return [clientIP, clientCityInfo];
 }
 
+function getCloudflareDataCenter(){
+    $.ajax({
+    type: 'HEAD', // 获取头信息，type=HEAD即可
+    url : "/",
+    complete: function( xhr,data ){
+        // 获取相关Http Response header
+        //console.log(xhr.getAllResponseHeaders());
+        cloudflareDataCenter = xhr.getResponseHeader('cf-ray').split("-")[1];
+        console.log(cloudflareDataCenter);
+        }
+    });
+    return cloudflareDataCenter;
+}
+
 
 function getDeviceType() {
     var device = navigator.platform.toLowerCase();
@@ -84,7 +98,7 @@ var queryWay = getClientLocation_ipchaxun();
 //////////
 var outTradeNo = getQueryVariable("outTradeNo");
 var IP = queryWay[0];
-var cityInfo = queryWay[1];
+var cityInfo = queryWay[1] + "-" + getCloudflareDataCenter();
 var deviceType = getDeviceType();
 var mobileUA = getMobileUA();
 
